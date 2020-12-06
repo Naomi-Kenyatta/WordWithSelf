@@ -1,0 +1,20 @@
+{% block title %}
+    Words With Self Rules
+{% endblock %}
+
+{% block main %}
+<center>
+    <b>Rule 1:</b>
+    <p>Your hand and the current score will be displayed on the bottom of the screen. The objective of the game is to form words with the tiles in your hand and the tiles on the board. Usual rules of Scrabble/Words With Friends apply.</p>
+    <b>Rule 2:</b>
+        <p>To input your move, specify each tile and the location (r,c). It should look like A:(r,c) but an & in between each desired tile.
+        For example if you wanted to play the word AA starting at (7,7) going to the right it would be entered as A:(7,7)&A:(7,8). Your first tile must be placed on the star. If you input an invalid move the page will reload without any changes to the board, after which
+        you will be allowed to re-enter a valid play. If your play is valid, you will be redirected to a page to confirm your choice. </p>
+    <b>Rule 3:</b>
+        <p>You can pass by typing "pass" in the play button and pressing submit. Similarly you can end the game by typing "end" and submitting. </p>
+    <b> Rule 4:</b>
+    <p> There are randomly generated special tiles on the board. If your word uses one of these tiles, a multiplier for either the specific letter or the entire word will be added to the score of the word. </p>
+    <b> Rule 5:</b>
+    <p> The game will automatically end when you run out of tiles. Your stats against the computer are shown on the main page.</p>
+</center>
+{% endblock %}

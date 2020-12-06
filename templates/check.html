@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Check
+{% endblock %}
+
+{% block main %}
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#table_id td.y_n:contains('TW')").css('background-color','#33BCFF');
+});
+</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#table_id td.y_n:contains('TL')").css('background-color','#FF3377');
+});
+</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#table_id td.y_n:contains('DW')").css('background-color','#33FFAB');
+});
+</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#table_id td.y_n:contains('DL')").css('background-color','#FFE533');
+});
+</script>
+
+<center>
+    <table id="table_id">
+        <tbody>
+            {% for i in range(15) %}
+                <tr>
+                    {% for j in range(15) %}
+                    <td class="y_n">
+                        {{ board[i][j] }}
+                    </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+<center>
+    <table>
+        <tbody>
+            <tr>
+                {% for letter in hand %}
+                <td>{{ letter }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</center>
+<form action="/check" method="post">
+    <button class="btn btn-primary" value="a" name="submit_button" type="submit">Confirm</button>
+    <button class="btn btn-primary" value="b" name="submit_button" type="submit">Back</button>
+</form>
+{% endblock %}

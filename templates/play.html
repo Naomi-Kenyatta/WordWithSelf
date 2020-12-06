@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Play: Words With Self
+{% endblock %}
+
+{% block main %}
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#table_id td.y_n:contains('TW')").css('background-color','#33BCFF');
+});
+</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#table_id td.y_n:contains('TL')").css('background-color','#FF3377');
+});
+</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#table_id td.y_n:contains('DW')").css('background-color','#33FFAB');
+});
+</script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    $("#table_id td.y_n:contains('DL')").css('background-color','#FFE533');
+});
+</script>
+
+
+<center>
+    Scrabble Board
+    <table id="table_id">
+        <tbody>
+            <tr>
+                <th>*</th>
+                {% for i in range(15) %}
+                    <th>{{i}}</th>
+                {% endfor %}
+            </tr>
+            {% for i in range(15) %}
+                <tr>
+                    <th>{{i}}</th>
+                    {% for j in range(15) %}
+                    <td class="y_n">
+                        {{ board[i][j] }}
+                    </td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</center>
+
+
+<center>
+    Your hand
+    <table>
+        <tbody>
+            <tr>
+                {% for letter in hand %}
+                <td>{{ letter }}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+</center>
+<form action="/play" method="post">
+    <div class="form-group">
+        <input autocomplete="off" autofocus class="form-control" name="pog" placeholder="Play" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<center>
+    Your score: {{ player_score }} | Computer score: {{ computer_score }}
+</center>
+
+{% endblock %}
